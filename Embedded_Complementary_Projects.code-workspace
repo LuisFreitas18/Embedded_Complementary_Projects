@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name": "Embedded_Complementary_Projects",
+			"path": "."
+		},
+		{
+			"name": "httphost_esp32_PlatformIO",
+			"path": "ESP32/httphost_esp32/httphost_esp32_PlatformIO"
+		},
+		{
+			"name": "blow_capacitor_PlatformIO",
+			"path": "RP2040/blow_capacitor/blow_capacitor_PlatformIO"
+		},
+		{
+			"name": "i2110_h-bridge_4mosfets_w-leds_PlatformIO",
+			"path": "RP2040/i2110_h-bridge_4mosfets_w-leds/i2110_h-bridge_4mosfets_w-leds_PlatformIO"
+		},
+		{
+			"name": "pwm_led_dc-motor_1mosfet_PlatformIO",
+			"path": "RP2040/pwm_led_dc-motor_1mosfet/pwm_led_dc-motor_1mosfet_PlatformIO"
+		}
+	],
+	"settings": {}
+}
