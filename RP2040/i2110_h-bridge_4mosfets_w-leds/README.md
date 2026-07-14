@@ -70,7 +70,7 @@ O PlatformIO compila este projeto em framework Arduino, mas o upload para o Pico
 
 Esse script procura a unidade `RPI-RP2` e copia o `firmware.uf2` diretamente para lá.
 
-O botão tátil de 4 pernas serve para encurtar RUN com GND e assim fazer reset ao Pico ou colocá-lo em modo bootloader sem ter de tirar o cabo micro USB. Simples, mas dá jeito na bancada.
+O botão tátil de 4 pernas serve para encurtar RUN com GND e assim fazer reset ao Pico ou colocá-lo em modo bootloader sem ter de tirar o cabo micro USB. Simples, mas dá jeito na bancada.lecdeo audc
 
 ### Passos
 

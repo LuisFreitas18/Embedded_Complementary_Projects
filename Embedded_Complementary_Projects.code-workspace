@@ -19,6 +19,9 @@
 		{
 			"name": "pwm_led_dc-motor_1mosfet_PlatformIO",
 			"path": "RP2040/pwm_led_dc-motor_1mosfet/pwm_led_dc-motor_1mosfet_PlatformIO"
+		},
+		{
+			"path": "RP2040/boost_converter"
 		}
 	],
 	"settings": {}
