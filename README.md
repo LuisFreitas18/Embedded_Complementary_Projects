@@ -1,10 +1,13 @@
 # 🛠️ Embedded Complementary Projects
 
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-Orange?style=flat-square&logo=platformio&logoColor=white)](https://platformio.org/)
+[![Framework](https://img.shields.io/badge/Framework-ESP--IDF-red?style=flat-square&logo=espressif&logoColor=white)](https://docs.espressif.com/projects/esp-idf/)
 [![Framework](https://img.shields.io/badge/Framework-Arduino-blue?style=flat-square&logo=arduino&logoColor=white)](https://www.arduino.cc/)
+[![Language](https://img.shields.io/badge/Language-C-A8B9CC?style=flat-square&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Language](https://img.shields.io/badge/Language-C%2B%2B-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)](https://isocpp.org/)
+[![Language](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 
-📦 Repositório pessoal com pequenos projectos de *sistemas embarcados (*embedded*)*, hardware e eletrónica aplicada.
+📦 Repositório pessoal com pequenos projetos de *sistemas embarcados (embedded)*, hardware e eletrónica aplicada.
 
 Serve como arquivo de aprendizagem, prototipagem e também como base para voltar a usar estes circuitos e sketches mais tarde, sem ter de começar do zero.
 
@@ -16,9 +19,9 @@ Serve como arquivo de aprendizagem, prototipagem e também como base para voltar
 | Categoria              | Tecnologias Aplicadas                                    |
 | :----------------------- | :--------------------------------------------------------- |
 | **Microcontroladores** | Raspberry Pi Pico (RP2040), Espressif ESP32 (WROOM-32)   |
-| **Frameworks & IDEs**  | Arduino Framework, PlatformIO, VS Code                   |
+| **Frameworks & IDEs**  | Arduino Framework, ESP-IDF Framework, PlatformIO, VS Code                   |
 | **CAD Eletrónica**    | KiCad (Esquemáticos e Simulação)                      |
-| **Linguagens**         | C++ (Firmware), Python (Scripts de Automação / Deploy) |
+| **Linguagens**         | C/C++ (Firmware), Python (Scripts de Automação / Deploy / Pre&Post platformio.ini) |
 
 ---
 
@@ -30,11 +33,19 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 
 * **[httphost_esp32](./ESP32/httphost_esp32/httphost_esp32_PlatformIO):** Servidor HTTP minimalista nativo para controlo remoto de IOs e monitorização de estado via Wi-Fi.
 
+* **[ws_ap_matrix_esp32](./ESP32/ws_ap_matrix_esp32/ws_ap_matrix_esp32_PlatformIO):** Aplicação Web embarcada para ESP32 em ESP-IDF que permite controlar e sincronizar bidirecionalmente uma matriz 2D em tempo real via WebSockets. Mantem os dados persistentes na memória NVS.
+
 ### 📌 RP2040 (Pi Pico)
 
 * **[pwm_led_dc-motor_1mosfet](./RP2040/pwm_led_dc-motor_1mosfet/pwm_led_dc-motor_1mosfet_PlatformIO):** Controlo de velocidade de motor DC e brilho de LEDs por PWM, com utilização de encoders rotativos e isolamento com optoacopladores de alta velocidade (6N137).
+
 * **[i2110_h-bridge_4mosfets_w-leds](./RP2040/i2110_h-bridge_4mosfets_w-leds/i2110_h-bridge_4mosfets_w-leds_PlatformIO):** Implementação de uma ponte H discreta com 4 MOSFETs de canal N, com utilização de drivers de Gate IR2110 para controlo de inversão de marcha e travagem de motores.
+
 * **[blow_capacitor](./RP2040/blow_capacitor/blow_capacitor_PlatformIO):** O objetivo é literalmente explodir um condensador eletrolítico de 22µF / 100V injetando-lhe 220VAC da rede elétrica através de um relé, tudo acionado em segurança via comando de Infravermelhos (IR).
+
+### ⤮  Platform Crossover
+
+* **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./ESP32/ws_ap_matrix_esp32+rp2040_HALimplementation_env/ws_ap_matrix_esp32+rp2040_HALimplementation_env_PlatformIO):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
 
 ---
 
@@ -51,6 +62,15 @@ Para resolver isso, criei um script em Python que faz tudo sozinho:
 3. Dá-te feedback com cores vivas no terminal para saberes se correu bem.
 
 Basicamente, passas a ter um botão de Upload funcional via USB Mass Storage sem teres de arrastar ficheiros à mão.
+
+
+### 🔐 Credenciais em (.env) via Python
+
+Para evitar expor o SSID e a Palavra-passe do Access Point (AP) no controlo de versão (Git), a configuração de rede é injetada automaticamente durante o processo de compilação:
+
+1. O script `load_ap_env.py` é executado antes da compilação iniciar (`extra_scripts = pre:load_ap_env.py`) e lê o ficheiro privado `src/.env`.
+2. Gera automaticamente o cabeçalho C `src/ap_config.h` com os `#define` contendo o SSID e a palavra-passe lidos.
+3. Garante que as credenciais reais ficam protegidas e fora do repositório, disponibilizando apenas o modelo público `.env.example`.
 
 ---
 
