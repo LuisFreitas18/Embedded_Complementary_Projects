@@ -45,7 +45,7 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 
 ### ⤮  Platform Crossover
 
-* **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./ESP32/ws_ap_matrix_esp32+rp2040_HALimplementation_env/ws_ap_matrix_esp32+rp2040_HALimplementation_env_PlatformIO):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
+* **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./MCU_PlatformCrossover/ws_ap_matrix_esp32+rp2040_HALimplementation_env/ws_ap_matrix_esp32+rp2040_HALimplementation_env_PlatformIO):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
 
 ---
 
