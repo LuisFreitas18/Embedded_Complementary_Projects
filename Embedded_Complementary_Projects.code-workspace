@@ -31,6 +31,14 @@
 		{
 			"name": "ws_ap_matrix_esp32+rp2040_HALimplementation_env",
 			"path": "MCU_PlatformCrossover/ws_ap_matrix_esp32+rp2040_HALimplementation_env/ws_ap_matrix_esp32+rp2040_HALimplementation_env_PlatformIO"
+		},
+		{
+			"name": "ArduinoISP_program_attitny85_using_esp32",
+			"path": "ATTINY/ArduinoISP_program_attitny85_using_esp32/ArduinoISP_program_attitny85_using_esp32_PlatformIO"
+		},
+		{
+			"name": "Attiny85_LEDblink_esp32_as_ISP",
+			"path": "ATTINY/ArduinoISP_program_attitny85_using_esp32/Attiny85_LEDblink_esp32_as_ISP_PlatformIO"
 		}
 	],
 	"settings": {}

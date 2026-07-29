@@ -18,7 +18,7 @@ Serve como arquivo de aprendizagem, prototipagem e também como base para voltar
 
 | Categoria              | Tecnologias Aplicadas                                    |
 | :----------------------- | :--------------------------------------------------------- |
-| **Microcontroladores** | Raspberry Pi Pico (RP2040), Espressif ESP32 (WROOM-32)   |
+| **Microcontroladores** | Raspberry Pi Pico (RP2040), Espressif ESP32 (WROOM-32), ATTINY (85)   |
 | **Frameworks & IDEs**  | Arduino Framework, ESP-IDF Framework, PlatformIO, VS Code                   |
 | **CAD Eletrónica**    | KiCad (Esquemáticos e Simulação)                      |
 | **Linguagens**         | C/C++ (Firmware), Python (Scripts de Automação / Deploy / Pre&Post platformio.ini) |
@@ -31,21 +31,25 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 
 ### 🌐 ESP32
 
-* **[httphost_esp32](./ESP32/httphost_esp32/httphost_esp32_PlatformIO):** Servidor HTTP minimalista nativo para controlo remoto de IOs e monitorização de estado via Wi-Fi.
+* **[httphost_esp32](./ESP32/httphost_esp32):** Servidor HTTP minimalista nativo para controlo remoto de IOs e monitorização de estado via Wi-Fi.
 
-* **[ws_ap_matrix_esp32](./ESP32/ws_ap_matrix_esp32/ws_ap_matrix_esp32_PlatformIO):** Aplicação Web embarcada para ESP32 em ESP-IDF que permite controlar e sincronizar bidirecionalmente uma matriz 2D em tempo real via WebSockets. Mantem os dados persistentes na memória NVS.
+* **[ws_ap_matrix_esp32](./ESP32/ws_ap_matrix_esp32):** Aplicação Web embarcada para ESP32 em ESP-IDF que permite controlar e sincronizar bidirecionalmente uma matriz 2D em tempo real via WebSockets. Mantem os dados persistentes na memória NVS.
 
 ### 📌 RP2040 (Pi Pico)
 
-* **[pwm_led_dc-motor_1mosfet](./RP2040/pwm_led_dc-motor_1mosfet/pwm_led_dc-motor_1mosfet_PlatformIO):** Controlo de velocidade de motor DC e brilho de LEDs por PWM, com utilização de encoders rotativos e isolamento com optoacopladores de alta velocidade (6N137).
+* **[pwm_led_dc-motor_1mosfet](./RP2040/pwm_led_dc-motor_1mosfet):** Controlo de velocidade de motor DC e brilho de LEDs por PWM, com utilização de encoders rotativos e isolamento com optoacopladores de alta velocidade (6N137).
 
-* **[i2110_h-bridge_4mosfets_w-leds](./RP2040/i2110_h-bridge_4mosfets_w-leds/i2110_h-bridge_4mosfets_w-leds_PlatformIO):** Implementação de uma ponte H discreta com 4 MOSFETs de canal N, com utilização de drivers de Gate IR2110 para controlo de inversão de marcha e travagem de motores.
+* **[i2110_h-bridge_4mosfets_w-leds](./RP2040/i2110_h-bridge_4mosfets_w-leds):** Implementação de uma ponte H discreta com 4 MOSFETs de canal N, com utilização de drivers de Gate IR2110 para controlo de inversão de marcha e travagem de motores.
 
-* **[blow_capacitor](./RP2040/blow_capacitor/blow_capacitor_PlatformIO):** O objetivo é literalmente explodir um condensador eletrolítico de 22µF / 100V injetando-lhe 220VAC da rede elétrica através de um relé, tudo acionado em segurança via comando de Infravermelhos (IR).
+* **[blow_capacitor](./RP2040/blow_capacitor/blow_capacitor):** O objetivo é literalmente explodir um condensador eletrolítico de 22µF / 100V injetando-lhe 220VAC da rede elétrica através de um relé, tudo acionado em segurança via comando de Infravermelhos (IR).
+
+### 𓇲 ATTINY (85)
+
+* **[ArduinoISP_program_attitny85_using_esp32](./ATTINY/ArduinoISP_program_attitny85_using_esp32):** 2 módulos PlatformIO: Utilizar o ESP32 como programador ArduinoISP para fazer upload de código para ATTINY, neste caso Attiny85; Código de teste simples LED Blink para testar o funcionamento do ATTINY programado com ESP32 ArduinoISP. `platformio.ini` oferece configurações para o clock do Attiny85.
 
 ### ⤮  Platform Crossover
 
-* **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./MCU_PlatformCrossover/ws_ap_matrix_esp32+rp2040_HALimplementation_env/ws_ap_matrix_esp32+rp2040_HALimplementation_env_PlatformIO):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
+* **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./MCU_PlatformCrossover/ws_ap_matrix_esp32+rp2040_HALimplementation_env):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
 
 ---
 
