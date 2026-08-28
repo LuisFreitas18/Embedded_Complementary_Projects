@@ -15,12 +15,11 @@ Serve como arquivo de aprendizagem, prototipagem e também como base para voltar
 
 ## 🎛️ Plataformas
 
-
-| Categoria              | Tecnologias Aplicadas                                    |
-| :----------------------- | :--------------------------------------------------------- |
-| **Microcontroladores** | Raspberry Pi Pico (RP2040), Espressif ESP32 (WROOM-32), ATTINY (85)   |
-| **Frameworks & IDEs**  | Arduino Framework, ESP-IDF Framework, PlatformIO, VS Code                   |
-| **CAD Eletrónica**    | KiCad (Esquemáticos e Simulação)                      |
+| Categoria                    | Tecnologias Aplicadas                                                                |
+| :--------------------------- | :----------------------------------------------------------------------------------- |
+| **Microcontroladores** | Raspberry Pi Pico (RP2040), Espressif ESP32 (WROOM-32), ATTINY (85)                  |
+| **Frameworks & IDEs**  | Arduino Framework, ESP-IDF Framework, PlatformIO, VS Code                            |
+| **CAD Eletrónica**    | KiCad (Esquemáticos e Simulação)                                                  |
 | **Linguagens**         | C/C++ (Firmware), Python (Scripts de Automação / Deploy / Pre&Post platformio.ini) |
 
 ---
@@ -32,15 +31,12 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 ### 🌐 ESP32
 
 * **[httphost_esp32](./ESP32/httphost_esp32):** Servidor HTTP minimalista nativo para controlo remoto de IOs e monitorização de estado via Wi-Fi.
-
 * **[ws_ap_matrix_esp32](./ESP32/ws_ap_matrix_esp32):** Aplicação Web embarcada para ESP32 em ESP-IDF que permite controlar e sincronizar bidirecionalmente uma matriz 2D em tempo real via WebSockets. Mantem os dados persistentes na memória NVS.
 
 ### 📌 RP2040 (Pi Pico)
 
 * **[pwm_led_dc-motor_1mosfet](./RP2040/pwm_led_dc-motor_1mosfet):** Controlo de velocidade de motor DC e brilho de LEDs por PWM, com utilização de encoders rotativos e isolamento com optoacopladores de alta velocidade (6N137).
-
 * **[i2110_h-bridge_4mosfets_w-leds](./RP2040/i2110_h-bridge_4mosfets_w-leds):** Implementação de uma ponte H discreta com 4 MOSFETs de canal N, com utilização de drivers de Gate IR2110 para controlo de inversão de marcha e travagem de motores.
-
 * **[blow_capacitor](./RP2040/blow_capacitor/blow_capacitor):** O objetivo é literalmente explodir um condensador eletrolítico de 22µF / 100V injetando-lhe 220VAC da rede elétrica através de um relé, tudo acionado em segurança via comando de Infravermelhos (IR).
 
 ### 𓇲 ATTINY (85)
@@ -50,6 +46,10 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 ### ⤮  Platform Crossover
 
 * **[ws_ap_matrix_esp32+rp2040_HALimplementation_env](./MCU_PlatformCrossover/ws_ap_matrix_esp32+rp2040_HALimplementation_env):** Protótipo cross-platform (ESP32 / Pi Pico W) com camada Hardware Abstraction Layer (HAL), controlo de matriz 2D via WebSockets, exemplos de armazenamento em BLOB matriz e struct (NVS) e scripts Python para load de credenciais (.env).
+
+### 🪫 Sem MCU, apenas eletrónica e circuitos
+
+* **[boost_converter_UC3843_5Vto12V](./NO_MCU(ElectronicsOnly)/boost_converter_UC3843_5Vto12V):** Conversor Boost (Step-Up) de 5V para 12V, baseado no controlador PWM UC3843. Implementação de um conversor DC-DC THT, capaz de elevar uma tensão de entrada de 5V (por exemplo, de uma porta USB2.0) para uma saída regulada de 12V. Inclui esquemáticos, layout de PCB e render 3D (KiCad).
 
 ---
 
@@ -67,7 +67,6 @@ Para resolver isso, criei um script em Python que faz tudo sozinho:
 
 Basicamente, passas a ter um botão de Upload funcional via USB Mass Storage sem teres de arrastar ficheiros à mão.
 
-
 ### 🔐 Credenciais em (.env) via Python
 
 Para evitar expor o SSID e a Palavra-passe do Access Point (AP) no controlo de versão (Git), a configuração de rede é injetada automaticamente durante o processo de compilação:
@@ -83,10 +82,10 @@ Para evitar expor o SSID e a Palavra-passe do Access Point (AP) no controlo de v
 Para evitar conflitos de compilação entre o Plataformas diferentes, este repositório utiliza **Multi-root Workspaces** do VS Code.
 
 1. Faz o clone do repositório para a tua máquina:
+
    ```bash
    git clone [https://github.com/LuisFreitas18/Embedded_Complementary_Projects.git](https://github.com/LuisFreitas18/Embedded_Complementary_Projects.git)
    ```
-
 2. No VS Code, vai a **File ➔ Open Workspace from File...** e escolhe o ficheiro:
    `Embedded_Complementary_Projects.code-workspace`
 
