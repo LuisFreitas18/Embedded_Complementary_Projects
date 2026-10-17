@@ -32,6 +32,8 @@ O repositório está organizado no formato de **Monorepo**, com divisão dos pro
 
 * **[httphost_esp32](./ESP32/httphost_esp32):** Servidor HTTP minimalista nativo para controlo remoto de IOs e monitorização de estado via Wi-Fi.
 * **[ws_ap_matrix_esp32](./ESP32/ws_ap_matrix_esp32):** Aplicação Web embarcada para ESP32 em ESP-IDF que permite controlar e sincronizar bidirecionalmente uma matriz 2D em tempo real via WebSockets. Mantem os dados persistentes na memória NVS.
+* **[esp32-idf_ota](./ESP32/esp32-idf_ota):** Implementação de atualização over-the-air (OTA) para ESP32 com a framework ESP-IDF. Interface web para upload de firmware, com verificação de integridade e rollback automático em caso de falha.
+* **[ElegantOTA_esp32](./ESP32/ElegantOTA_esp32):** Implementação de atualização over-the-air (OTA) para ESP32 com a framework Arduino e library ElegantOTA.
 
 ### 📌 RP2040 (Pi Pico)
 
